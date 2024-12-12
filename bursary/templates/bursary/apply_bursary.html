@@ -1,0 +1,65 @@
+{% extends 'bursary/main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  .profile-pic{
+      max-width: 200px;
+      max-height: 200px;
+      margin: 0 auto;
+      border-radius: 50%;
+      display: block;
+  }
+  .card-body {
+      padding: 20px;
+  }
+  .btn-info {
+      font-size: 16px;
+      font-weight: bold;
+  }
+  .form-group {
+      margin-bottom: 15px;
+  }
+  .btn-info {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+  }
+  h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: bold;
+  }
+  .card {
+      margin-top: 20px;
+  }
+</style>
+
+<br>
+
+<div class="row">
+    <div class="col-md-4">
+      <div class="card card-body">
+        <a class="btn btn-info" href="{% url 'dashboard' %}"> &#8592; Back to Profile</a>
+        <hr>
+        <h3>Update Here</h3>
+        <hr>
+        <img class="profile-pic" src="{{request.user.student.profile_pic.url}}">
+      </div>
+    </div>
+
+  <div class="col-md-8">
+    <div class="card card-body">
+         <form method="POST" action="" enctype="multipart/form-data">
+           {% csrf_token %}
+           {{ form.as_p }}
+           <input class="btn btn-info" type="submit" value="Update Information">
+         </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'bursary/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+    <div class="col">
+        <div class="col-md">
+            <div class="card card-body" style="background-color:#f8f9fa; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+                <h5 style="text-align:center; font-weight:bold; color:#007bff;">BnBs</h5>
+            </div>
+            <div class="card card-body" style="background-color:#f8f9fa; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+                <table class="table" style="border-collapse: separate; border-spacing: 10px;">
+                    <thead>
+                        <tr>
+                            <th style="font-weight:bold; color:#007bff;">BnB Name</th>
+                            <th style="font-weight:bold; color:#007bff;">Category</th>
+                            <th style="font-weight:bold; color:#007bff;">BnB Price</th>
+                            <th style="font-weight:bold; color:#007bff;">BnB No</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in bursaries %}
+                        <tr>
+                            <td>{{i.name}}</td>
+                            <td>{{i.category}}</td>
+                            <td>{{i.amount}}</td>
+                            <td>{{i.batchNumber}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
